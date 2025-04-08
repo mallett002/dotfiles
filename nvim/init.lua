@@ -134,6 +134,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- toggle undo tree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- toggle nerdtree
+vim.keymap.set("n", "<leader>\\", vim.cmd.NERDTreeToggle)
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 -- Alternative to packer plugin manager
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -161,6 +167,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+
+	-- Undo tree - helpfull for seeing tree of previous changes
+	"mbbill/undotree",
+
+	-- project explorer
+	"preservim/nerdtree",
 
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
